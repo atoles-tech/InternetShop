@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: pet_shop
+  datasource:
+    url: jdbc:postgresql://localhost/shop
+    username: postgres
+    password: admin
+  jpa:
+    generate-ddl: true 
