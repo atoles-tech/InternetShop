@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/styles/home_styles.css}" />
+    <title>Домашняя страница</title>
+</head>
+<body>
+    <nav>
+        <img th:src="@{/images/logo.png}">
+        <a th:href="@{/products}">О</a>
+        <form method="post">
+            <button>Посмотреть товары</button>
+        </form>
+    </nav>
+    <div class = "about_us">
+        <section class="leftborder">
+        </section>
+        <div class="rightborder"></div>
+    </div>
+    <footer></footer>
+</body>
+</html>
