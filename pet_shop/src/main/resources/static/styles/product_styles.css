@@ -1,0 +1,17 @@
+a{
+    text-decoration: none; 
+    border: 1px solid black;
+    bottom: 10px;
+    color: black;
+}
+
+a:visited, a:active{
+    color: black;
+}
+
+a:hover{
+    color: blue;
+    text-decoration: underline;
+    background-color: lightgray;
+    transition: background-color 0.3s;
+}

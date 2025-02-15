@@ -1,6 +1,9 @@
 package shop.controllers;
 
+import java.util.Optional;
+
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import shop.model.Product;
@@ -18,5 +21,10 @@ public class ApiControllerProducts {
     @GetMapping("/api/v1/products")
     public Iterable<Product> products(){
         return productRepo.findAll();
+    }
+    
+    @GetMapping("api/v1/products/{id}")
+    public Optional<Product> product(@PathVariable Integer id){
+        return productRepo.findById(id);
     }
 }
