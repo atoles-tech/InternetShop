@@ -7,6 +7,15 @@
     <title>Document</title>
 </head>
 <body>
+    <nav>
+        <a href="/"><img th:src="@{/images/logo.png}"></a>
+        <table>
+            <th><a id ="top" th:href="@{/products}">Посмотреть католог товаров</a></th>
+            <th><a id ="top" th:href="@{/products}">О нас</a></th>
+            <th><a id ="top" th:href="@{/products}">Способы доставки</a></th>
+            <th><a id ="top" th:href="@{/products}">Корзина</a></th>
+        </table>
+    </nav>
     <div id="container">
     </div>
     <script th:src="@{scripts/products.js}"></script>

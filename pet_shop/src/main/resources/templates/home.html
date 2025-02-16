@@ -8,14 +8,16 @@
 </head>
 <body>
     <nav>
-        <img th:src="@{/images/logo.png}">
-        <a th:href="@{/products}">О</a>
-        <form method="post">
-            <button>Посмотреть товары</button>
-        </form>
+        <a href="/"><img th:src="@{/images/logo.png}"></a>
+        <table>
+            <th><a th:href="@{/products}">Посмотреть католог товаров</a></th>
+            <th><a th:href="@{/products}">О нас</a></th>
+            <th><a th:href="@{/products}">Способы доставки</a></th>
+        </table>
     </nav>
     <div class = "about_us">
         <section class="leftborder">
+            
         </section>
         <div class="rightborder"></div>
     </div>

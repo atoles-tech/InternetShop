@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import shop.repository.ProductRepository;
+import shop.repository.SupplierRepository;
 
 @SpringBootApplication
 public class PetShopApplication {
@@ -15,8 +16,10 @@ public class PetShopApplication {
 	}
 
 	@Bean
-	public CommandLineRunner dataLoader(ProductRepository repo) {
+	public CommandLineRunner dataLoader(ProductRepository repo,SupplierRepository sup) {
 		return args -> {
+
 		};
 	}
+
 }
