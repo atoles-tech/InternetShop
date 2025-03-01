@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Корзина</title>
-    <link rel="stylesheet" th:href="@{styles/cart_submit.css}">
+    <link rel="stylesheet" th:href="@{/styles/orders.css}">
 </head>
 
 <body>
@@ -21,18 +21,16 @@
             <a th:href="@{/way-delivery}">
                 <p>Способы доставки</p>
             </a>
-            <div th:if="${username}" class="login"><a th:href="@{/cart}">
+            <div class="login"><a th:href="@{/cart}">
                     <p>Корзина</p>
-                </a></div>
-            <div th:if="!${username}" class="login"><a th:href="@{/login}">
-                    <p>Войти</p>
-                </a></div>
+                </a></div>  
         </div>
     </nav>
-    <form method="post" th:action="@{order/submit}">
-        <input type="text" name = "address" placeholder="Адрес">
-        <button>Заказать</button>
-    </form>
+    <p>Ваши заказы:</p>
+    <div id="container">
+    </div>
+    <p id="total-price"></p>
+    <script th:src="@{scripts/orders.js}"></script>
 </body>
 
 </html>

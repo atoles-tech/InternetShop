@@ -15,6 +15,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -29,12 +30,16 @@ public class User implements UserDetails {
     private String passwordHash;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    private List<Product> products;
+    private List<Product> products; // cart
+
+    @OneToMany
+    private List<Order> orders;
 
     public User(String username, String passwordHash) {
         this.username = username;
         this.passwordHash = passwordHash;
         this.products = new ArrayList<>();
+        this.orders = new ArrayList<>();
     }
 
     public User() {
@@ -43,6 +48,10 @@ public class User implements UserDetails {
 
     public void addProduct(Product product){
         this.products.add(product);
+    }
+
+    public void addOrder(Order order){
+        this.orders.add(order);
     }
 
     public User delProduct(Long id){
@@ -118,4 +127,13 @@ public class User implements UserDetails {
         this.products = products;
     }
 
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
+
+    
 }

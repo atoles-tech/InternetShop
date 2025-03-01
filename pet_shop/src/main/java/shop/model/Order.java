@@ -7,9 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -20,9 +18,7 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+
     private String address;
 
     @ManyToMany
@@ -32,8 +28,7 @@ public class Order {
         this.products = new ArrayList<>();
     }
 
-    public Order(User user, String address, List<Product> products) {
-        this.user = user;
+    public Order(String address, List<Product> products) {
         this.address = address;
         this.products = new ArrayList<>();
     }
@@ -64,14 +59,6 @@ public class Order {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
 }

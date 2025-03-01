@@ -30,34 +30,57 @@ public class OrderController {
 
     @GetMapping()
     public String order(Order order, Model model, Principal principal){
+       
         if(principal == null || userRepo.findByUsername(principal.getName()).getProducts().size()==0){
-            return "redirect:/home";
+            return "redirect:/";
         }
+
         model.addAttribute("username",principal.getName());
         model.addAttribute("order",new Order());
+      
         return "cart_submit";
     }
 
     @PostMapping("/submit")
     public String submitOrder(@ModelAttribute("order") Order order, Model model, Principal principal){
-        if(principal == null){
-            return "redirect:/home";
-        }
         
+        if(principal == null){
+            return "redirect:/";
+        }
+
+        if(order.getAddress().isEmpty()){
+            return "redirect:/order";
+        }
+
         model.addAttribute("username",principal.getName());
         User user = userRepo.findByUsername(principal.getName());
-        order.setUser(user);
+
+        if(user.getProducts().size()==0){
+            return "redirect:/";
+        }
+
         for(Product p: user.getProducts()){
             order.addProduct(p);
         }
+
         user.setProducts(new ArrayList<Product>());
-        userRepo.save(user);
+        user.addOrder(order);
+
         orderRepo.save(order);
+        userRepo.save(user);
+
         return "redirect:/order/success";
     }
 
-    @GetMapping("/success")
-    public String succesOrder(){
+    @GetMapping("/success") 
+    public String succesOrder(Model model, Principal principal){
+
+        if(principal == null){
+            return "redirect:/";
+        }
+
+        model.addAttribute("username",principal.getName());
+
         return "order_success";
     }
 }

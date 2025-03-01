@@ -1,5 +1,4 @@
 package shop;
-
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,6 +6,10 @@ import org.springframework.context.annotation.Bean;
 
 import shop.repository.ProductRepository;
 import shop.repository.SupplierRepository;
+
+// import shop.model.Supplier;
+// import shop.model.Product;
+
 
 @SpringBootApplication
 public class PetShopApplication {
