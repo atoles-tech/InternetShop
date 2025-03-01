@@ -3,7 +3,7 @@ package shop.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -22,8 +22,8 @@ public class Supplier {
     private String name;
     private String physicalAdress;
 
-    @OneToMany(mappedBy = "supplier", cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @OneToMany(mappedBy = "supplier", cascade = CascadeType.ALL) 
+    @JsonBackReference
     private List<Product> products;
    
     public Supplier(){

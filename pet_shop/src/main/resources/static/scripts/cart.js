@@ -50,4 +50,9 @@ function createElements(data) {
 
         container.appendChild(newDiv);
     });
+
+
+    if(data.products.length === 0){
+        document.getElementById('submit-order').style.display = 'none';
+    }
 }

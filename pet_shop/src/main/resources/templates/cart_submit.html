@@ -5,12 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Корзина</title>
-    <link rel="stylesheet" th:href="@{styles/cart.css}">
+    <link rel="stylesheet" th:href="@{styles/cart_submit.css}">
 </head>
 
 <body>
-    <meta name="_csrf" th:content="${_csrf.token}" />
-    <meta name="_csrf_header" th:content="${_csrf.headerName}" />
     <nav>
         <a href="/"><img th:src="@{/images/logo.png}"></a>
         <div class="block">
@@ -31,16 +29,11 @@
                 </a></div>
         </div>
     </nav>
+    <form method="post" th:action="@{order/submit}">
+        <input type="text" name = "address" placeholder="Адрес">
 
-    <p>Имя пользователя: <span id="username"></span></p>
-    <p>Корзина</p>
-    <div id="container"></div>
-
-    
-    <a id="submit-order" class="submit-order" th:href="@{/order}">Заказать</a>
-
-
-    <script th:src="@{scripts/cart.js}"></script>
+        <button>Заказать</button>
+    </form>
 </body>
 
 </html>

@@ -1,0 +1,37 @@
+    <!DOCTYPE html>
+    <html xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>123</title>
+        <link rel="stylesheet" th:href="@{/styles/cart.css}">
+    </head>
+
+    <body>
+        <nav>
+            <a href="/"><img th:src="@{/images/logo.png}"></a>
+            <div class="block">
+                <a th:href="@{/products}">
+                    <p>Посмотреть католог товаров</p>
+                </a>
+                <a th:href="@{/products}">
+                    <p>О нас</p>
+                </a>
+                <a th:href="@{/products}">
+                    <p>Способы доставки</p>
+                </a>
+                <div th:if="${username}" class="login"><a th:href="@{/cart}">
+                        <p>Корзина</p>
+                    </a></div>
+                <div th:if="!${username}" class="login"><a th:href="@{/login}">
+                        <p>Войти</p>
+                    </a></div>
+            </div>
+        </nav>
+
+        <h1>Спасибо за заказ!</h1>
+
+    </body>
+
+    </html>

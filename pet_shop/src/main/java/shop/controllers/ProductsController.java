@@ -66,4 +66,12 @@ public class ProductsController {
         userRepo.save(userRepo.findByUsername(principal.getName()).delProduct(id));
         return "redirect:/cart";
     }
+
+    @PostMapping("/products/submit-order")
+    public String submitOrder(){
+        
+
+        return "redirect:/";
+    }
+
 }

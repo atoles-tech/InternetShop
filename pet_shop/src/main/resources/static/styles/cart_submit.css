@@ -133,46 +133,39 @@ a::before{
     background-color: lightblue;
 }
 
-.submit-order{
-    text-align: center;
-    margin: 20px;
-    border:0px;
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+input{
+    width:80%;
     padding: 20px;
-    width: 40%;
     align-self: center;
+    margin: 20px;
+    border: 2px lightblue solid;
     border-radius: 20px;
+    background-color: rgb(191, 227, 240);
     font-family: "Vollkorn", serif;
     font-weight: bold;
-    font-size:18px;
+    font-size:20px;
+}
+
+button{
+    width:80%;
+    padding: 20px;
+    align-self: center;
+    margin: 10px;
+    border: 2px lightblue solid;
+    border-radius: 20px;
+    background-color: rgb(191, 227, 240);
+    font-family: "Vollkorn", serif;
+    font-weight: bold;
+    font-size:20px;
     transform: scale(1);
-    text-decoration: none;
-    background-color: aliceblue;
-    transition: transform 0.5s ease, background-color 0.5s;
+    transition: transform 0.8s ease;
 }
 
-.submit-order:hover{
-    transform: scale(1.1);
-    background-color: lightblue;
-}
-
-a.submit-order::after{
-    content:'';
-    position: absolute;
-    right:0;
-    bottom: 15%;
-    height: 70%;
-    width: 2px;
-    background-color: lightblue;
-    transform: scaleY(0);
-}
-
-a.submit-order::before{
-    content:'';
-    position: absolute;
-    left:0;
-    bottom: 15%;
-    height: 70%;
-    width: 2px;
-    background-color: lightblue;
-    transform: scaleY(0);
+button:hover{
+    transform: scale(1.05);
 }

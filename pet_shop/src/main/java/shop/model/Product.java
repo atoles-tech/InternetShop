@@ -1,6 +1,6 @@
 package shop.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -21,7 +21,7 @@ public class Product {
 
     @ManyToOne
     @JoinColumn(name = "supplier_id", nullable = false)
-    @JsonBackReference
+    @JsonManagedReference
     private Supplier supplier;
 
     public Product(String name, Double price, Supplier supplier){
