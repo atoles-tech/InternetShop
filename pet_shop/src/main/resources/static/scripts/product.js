@@ -20,7 +20,7 @@ function addElements(data) {
     const product_name = document.getElementById('product-name');
     const product_price = document.getElementById('product-price');
    
-    product_name.innerText = data.name;
-    product_price.innerText = data.price;
+    product_name.innerText ="Название: " + data.name;
+    product_price.innerText =  "Стоимость: " + data.price;
 
 }

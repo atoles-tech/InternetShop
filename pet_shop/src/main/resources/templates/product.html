@@ -1,26 +1,40 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{/styles/product_styles.css}" />
+    <link rel="stylesheet" th:href="@{/styles/product.css}" />
     <title>Продукт</title>
 </head>
+
 <body>
-    <nav>
-        <a href="/"><img th:src="@{/images/logo.png}"></a>
-        <table>
-            <th><a id ="top" th:href="@{/products}">Посмотреть католог товаров</a></th>
-            <th><a id ="top" th:href="@{/products}">О нас</a></th>
-            <th><a id ="top" th:href="@{/products}">Способы доставки</a></th>
-            <th><a id ="top" th:href="@{/products}">Корзина</a></th>
-        </table>
-    </nav>
-    <div class="container">
-        <p id="product-name"></p>
-        <p id="product-price"></p>
-        <p></p>
-    </div>
+    <form th:action="@{/products/{id}(id=${product.id})}" method="post">
+        <nav>
+            <a href="/"><img th:src="@{/images/logo.png}"></a>
+            <div class="block">
+                <a th:href="@{/products}">
+                    <p>Посмотреть католог товаров</p>
+                </a>
+                <a th:href="@{/products}">
+                    <p>О нас</p>
+                </a>
+                <a th:href="@{/products}">
+                    <p>Способы доставки</p>
+                </a>
+                <div th:if="${username}" class="login"><a th:href="@{/cart}"><p>Корзина</p></a></div>
+                <div th:if="!${username}" class="login"><a th:href="@{/login}"><p>Войти</p></a></div>
+
+            </div>
+        </nav>
+        <div class="container">
+            <p id="product-name"></p>
+            <p id="product-price"></p>
+            <p></p>
+        </div>
+        <button type="submit">Добавить в корзину</button>
+    </form>
     <script th:src="@{/scripts/product.js}"></script>
 </body>
+
 </html>

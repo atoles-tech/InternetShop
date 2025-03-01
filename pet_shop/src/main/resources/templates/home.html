@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/styles/home_styles.css}" />
     <title>Домашняя страница</title>
 </head>
+
 <body>
     <nav>
         <a href="/"><img th:src="@{/images/logo.png}"></a>
-        <table>
-            <th><a th:href="@{/products}">Посмотреть католог товаров</a></th>
-            <th><a th:href="@{/products}">О нас</a></th>
-            <th><a th:href="@{/products}">Способы доставки</a></th>
-        </table>
+        <div class="block">
+            <a th:href="@{/products}"><p>Посмотреть католог товаров</p></a>
+            <a th:href="@{/products}"><p>О нас</p></a>
+            <a th:href="@{/products}"><p>Способы доставки</p></a>
+            <div th:if="${username}" class="login"><a th:href="@{/cart}"><p>Корзина</p></a></div>
+            <div th:if="!${username}" class="login"><a th:href="@{/login}"><p>Войти</p></a></div>
+        </div>
     </nav>
-    <div class = "about_us">
-        <section class="leftborder">
-            
-        </section>
-        <div class="rightborder"></div>
+    <div class="center-border">
+        <h1>Это домашняя страница</h1>
     </div>
     <footer></footer>
 </body>
+
 </html>

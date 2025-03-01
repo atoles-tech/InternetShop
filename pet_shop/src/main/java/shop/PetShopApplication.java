@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 
 import shop.repository.ProductRepository;
 import shop.repository.SupplierRepository;
+import shop.repository.UserRepository;
 
 @SpringBootApplication
 public class PetShopApplication {
@@ -16,10 +17,8 @@ public class PetShopApplication {
 	}
 
 	@Bean
-	public CommandLineRunner dataLoader(ProductRepository repo,SupplierRepository sup) {
-		return args -> {
-
-		};
+	public CommandLineRunner dataLoader(ProductRepository repo,SupplierRepository sup, UserRepository userRepo) {
+		return args -> {};
 	}
 
 }

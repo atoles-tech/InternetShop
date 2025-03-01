@@ -1,0 +1,26 @@
+<!-- tag::all[] -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Войти | Интернет-магазин</title>
+  </head>
+  <link rel="stylesheet" th:href="@{styles/login.css}">
+  <body>
+    <div class="container-login">
+      <h1>Войти</h1>
+
+      <p>Вы здесь впервые? Нажмите <a th:href="@{/register}">здесь</a>, чтобы зарегистрироваться</p>
+
+      <form method="POST" th:action="@{/login}">
+        
+        <input type="text" name="username" id="username" placeholder="Логин"/><br/>
+        
+        <input type="password" name="password" id="password" placeholder="Пароль"/><br/>
+        <div th:if="${errorMessage}" class="error-message">
+          <p th:text="${errorMessage}"></p>
+        </div>
+        <button>Войти</button>
+      </form>
+    </div>
+  </body>
+</html>
