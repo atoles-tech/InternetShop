@@ -44,8 +44,6 @@ public class ApiControllerProducts {
 
     @GetMapping("api/v1/current-user")
     public User user(Principal principal){
-        User user = userRepo.findByUsername(principal.getName());
-
-        return user; 
+        return userRepo.findByUsername(principal.getName()); 
     }
 }

@@ -35,7 +35,6 @@ public class OrderController {
             return "redirect:/";
         }
 
-        model.addAttribute("username",principal.getName());
         model.addAttribute("order",new Order());
       
         return "cart_submit";
@@ -52,7 +51,6 @@ public class OrderController {
             return "redirect:/order";
         }
 
-        model.addAttribute("username",principal.getName());
         User user = userRepo.findByUsername(principal.getName());
 
         if(user.getProducts().size()==0){
@@ -74,13 +72,6 @@ public class OrderController {
 
     @GetMapping("/success") 
     public String succesOrder(Model model, Principal principal){
-
-        if(principal == null){
-            return "redirect:/";
-        }
-
-        model.addAttribute("username",principal.getName());
-
         return "order_success";
     }
 }

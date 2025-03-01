@@ -21,11 +21,8 @@
             <a th:href="@{/way-delivery}">
                 <p>Способы доставки</p>
             </a>
-            <div th:if="${username}" class="login"><a th:href="@{/cart}">
+            <div class="login"><a th:href="@{/cart}">
                     <p>Корзина</p>
-                </a></div>
-            <div th:if="!${username}" class="login"><a th:href="@{/login}">
-                    <p>Войти</p>
                 </a></div>
         </div>
     </nav>

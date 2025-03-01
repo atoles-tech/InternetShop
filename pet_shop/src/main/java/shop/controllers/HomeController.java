@@ -12,51 +12,50 @@ public class HomeController {
 
     @GetMapping("/")
     public String home(Model model, Principal principal) {
+
         if (principal != null) {
             model.addAttribute("username", principal.getName());
         }
+
         return "home";
     }
 
     @GetMapping("/login")
-    public String login(@RequestParam(value = "error", required = false) String error, Model model,
-            Principal principal) {
+    public String login(@RequestParam(value = "error", required = false) String error, Model model,Principal principal) {
+
         if (principal != null) {
             return "redirect:/";
         }
+       
         if (error != null) {
             model.addAttribute("errorMessage", "Неверный логин или пароль.");
         }
+
         return "login";
     }
 
     @GetMapping("/cart")
-    public String cart(Model model, Principal principal) {
-        if (principal == null) {
-            return "home";
-        } else {
-            model.addAttribute("username", principal.getName());
-        }
+    public String cart() {
         return "cart";
     }
 
     @GetMapping("/about-us")
     public String aboutUs(Model model, Principal principal) {
-        if (principal == null) {
-            return "redirect:/";
-        } else {
-            model.addAttribute("username", principal.getName());
+
+        if(principal != null){
+            model.addAttribute("username",principal.getName());
         }
+
         return "about_us";
     }
 
     @GetMapping("/way-delivery")
     public String wayDelivery(Model model, Principal principal) {
-        if (principal == null) {
-            return "redirect:/";
-        } else {
-            model.addAttribute("username", principal.getName());
+
+        if(principal != null){
+            model.addAttribute("username",principal.getName());
         }
+
         return "way_delivery";
     }
 
